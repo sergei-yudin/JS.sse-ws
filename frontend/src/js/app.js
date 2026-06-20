@@ -147,7 +147,7 @@ function renderMessage(data) {
 }
 
 function connectToServer() {
-  socket = new WebSocket('ws://localhost:7070');
+  socket = new WebSocket('wss://js-sse-ws.onrender.com');
 
   socket.addEventListener('open', () => {
     socket.send(JSON.stringify({
