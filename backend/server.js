@@ -114,8 +114,6 @@ wsServer.on('connection', (ws) => {
       }
 
       if (message.type === 'send') {
-          console.log('MESSAGE FROM:', user.name);
-          console.log('TEXT:', message.message);
         const user = users.get(ws);
 
         if (!user) {
