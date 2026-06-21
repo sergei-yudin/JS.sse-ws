@@ -70,6 +70,7 @@ const wsServer = new WS.Server({
 });
 
 wsServer.on('connection', (ws) => {
+    console.log('CONNECTED');
     wsClients.add(ws);
 
     ws.on('message', (data) => {
@@ -113,6 +114,8 @@ wsServer.on('connection', (ws) => {
       }
 
       if (message.type === 'send') {
+          console.log('MESSAGE FROM:', user.name);
+          console.log('TEXT:', message.message);
         const user = users.get(ws);
 
         if (!user) {
@@ -129,6 +132,7 @@ wsServer.on('connection', (ws) => {
     });
 
     ws.on('close', () => {
+        console.log('DISCONNECTED');
       wsClients.delete(ws);
       users.delete(ws);
 
