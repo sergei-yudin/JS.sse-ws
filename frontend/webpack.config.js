@@ -8,6 +8,7 @@ module.exports = {
   devtool: 'inline-source-map',
   output: {
     path: path.resolve(__dirname, 'dist'),
+    publicPath: process.env.NODE_ENV === 'production' ? '/JS.sse-ws/' : '/',
   },
   devServer: {
     historyApiFallback: true,
