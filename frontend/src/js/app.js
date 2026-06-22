@@ -188,6 +188,17 @@ function connectToServer() {
       renderMessage(data);
     }
   });
+  socket.addEventListener('close', () => {
+    console.log('Соединение закрыто');
+
+    setTimeout(() => {
+      connectToServer();
+    }, 3000);
+  });
+
+  socket.addEventListener('error', (error) => {
+    console.error('WebSocket error:', error);
+  });
 }
 
 renderNicknameForm();
